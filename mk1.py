@@ -63,6 +63,19 @@ for i in range(0,10):
     symbol.append(data['data'][i]['symbol'])
     search_words.append(data['data'][i]['name'])
 
+# Init
+newsapi = NewsApiClient(api_key='56885df3e9f04b6a9762a4b1a33f9f1e')
+
+# /v2/everything
+all_articles = newsapi.get_everything(q='Bitcoin',
+                                      sources='axios, bloomberg, business-insider, crypto-coins-news, engadget, financial-post, google-news, hacker-news, mashable, next-big-futre, recode, reuters, techcrunch-cn, techradar, wired, the-wall-street-journal, bbc-news, fortune',
+                                      domains='bbc.co.uk,techcrunch.com',
+                                      from_param='2021-18-20',
+                                      to='2021-08-30',
+                                      language='en',
+                                      sort_by='relevancy',
+                                      page=1)    
+    
 st.write("""
 # Malkovich """)
 
