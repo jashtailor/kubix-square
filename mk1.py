@@ -1,5 +1,3 @@
-import tweepy as tw
-
 import pandas as pd
 import numpy as np
 
@@ -27,12 +25,16 @@ from requests.exceptions import ConnectionError, Timeout, TooManyRedirects
 import simplejson as json
 
 import itertools
+
+import tweepy as tw
+
 from newsapi import NewsApiClient
 
 import streamlit as st
 
-# Use the full page instead of a narrow central column
+
 st.set_page_config(layout="wide")
+
 
 # COINBASE API
 # Before we take data from Twitter we need to know the top 10 cryptocurrencies based on market capitalization for which we use the Coinbase API
@@ -65,6 +67,41 @@ for i in range(0,10):
     symbol.append(data['data'][i]['symbol'])
     search_words.append(data['data'][i]['name'])
 
+    
+# TWITTER API
+consumer_key= 'uLPC3KfMtGFcEeq4CxEOohZeg'
+consumer_secret= 'tywsJRvcr2zz5ICg7bkadbSIIjhGFmAlOLjJECjPqMfaRuwc1T'
+access_token= '1300465599823314944-VkC6tWnEUrbxTZ1wYpWIxbc8LQCPNL'
+access_token_secret= 'DDiF0cmidxoQlT2rgEUCGkP4E2DI8PBwz6WMS5QL51zOG'
+auth = tw.OAuthHandler(consumer_key, consumer_secret)
+auth.set_access_token(access_token, access_token_secret)
+api = tw.API(auth, wait_on_rate_limit=True)
+
+date_since = '2021-04-01'
+tweet_text = []
+date_time = []
+location = []
+
+for words in search_words:
+  tweets = tw.Cursor(api.search,
+              q=search_words,
+              lang="en",
+              since=date_since).items(10000)
+  for tweet in tweets:
+    str1 = tweet.text
+    str2 = tweet.created_at
+    str3 = tweet.user.location
+    tweet_text.append(str1)
+    date_time.append(str2)
+    location.append(str3)
+
+df_twitter = pd.DataFrame()
+df_twitter['Tweets'] = tweet_text
+df_twitter['Created at'] = date_time
+df_twitter['Location'] = location
+
+
+# NEWS API    
 # Init
 newsapi = NewsApiClient(api_key='56885df3e9f04b6a9762a4b1a33f9f1e')
 
