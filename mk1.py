@@ -84,7 +84,7 @@ st.write("""
 st.title("Let's create a table!")
 for i in range(1, 10):
     cols = st.beta_columns(4)
-    cols[0].write(f'{i}')
-    cols[1].write(f'{i * i}')
+    cols[0].write('Name')
+    cols[1].write('Symbol')
     cols[2].write(f'{i * i * i}')
     cols[3].write('x' * i)
