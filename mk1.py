@@ -57,7 +57,7 @@ for i in range(0,10):
     symbol.append(data['data'][i]['symbol'])
     search_words.append(data['data'][i]['name'])
 
-st.write(data)
+st.write(search_words)
     
 col1, col2 = st.beta_columns(2)
 col1.write('I am base col1!')
