@@ -13,6 +13,8 @@ import streamlit as st
 
 st.set_page_config(layout="wide")
 
+c1, c2, c3, c4 = st.beta_columns((2, 1, 1, 1))
+
 def my_widget(key):
     st.subheader('Hello there!')
     clicked = st.button("Click me " + key)
