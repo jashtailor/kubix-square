@@ -36,6 +36,10 @@ import streamlit as st
 st.set_page_config(layout="wide")
 
 
+st.write("""
+# Malkovich """)
+
+
 # COINBASE API
 # Before we take data from Twitter we need to know the top 10 cryptocurrencies based on market capitalization for which we use the Coinbase API
 url = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest'
@@ -66,8 +70,7 @@ for i in range(0,10):
     technicalities.append(data['data'][i]['quote']['USD'])
     symbol.append(data['data'][i]['symbol'])
     search_words.append(data['data'][i]['name'])
-
-choice = st.sidebar.selectbox("Menu", search_words)
+    
     
 def twitter(name):
   # TWITTER API
@@ -118,20 +121,17 @@ def news_api(name):
                                       language='en',
                                       sort_by='relevancy',
                                       page=1)   
-  
-  return all_articles
+  dict_0 = all_articles['articles']
+  df_0 = pd.DataFrame(dict_0)
+  return df_0
     
-st.write("""
-# Malkovich """)
 
 col1,col2 = st.beta_columns(2) 
-col1.write("First Column")
+col3,col4 = st.beta_columns(2)
 
-col2.success("Second COlumn")
+choice = st.sidebar.selectbox("Menu", search_words)
 
-
-col3,col4 = st.beta_columns(2) 
-col3.success("Second COlumn")
-
-col4.success("Second COlumn")
-
+if choice == search_words[0]:
+  df_t = twitter(search_words[0])
+  df_n = news_api(search_api[0])
+  col4.write(df_n['title'])
