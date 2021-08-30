@@ -13,7 +13,7 @@ import streamlit as st
 
 st.set_page_config(layout="wide")
 
-c1, c2, c3, c4 = st.columns((2, 1, 1, 1))
+c1, c2, c3, c4 = st.beta_columns((2, 1, 1, 1))
 
 def my_widget(key):
     st.subheader('Hello there!')
@@ -21,6 +21,17 @@ def my_widget(key):
 
 # This works in the main area
 clicked = my_widget("first")
+
+col1, col2 = st.beta_columns(2)
+col1.write('I am base col1!')
+col2.write('I am base col2!')
+
+col_in_col1, col_in_col2 = st.beta_columns(2)
+col1.col_in_col1.button('button1')
+col1.col_in_col2.button('button2')
+
+col2.col_in_col1.button('button3')
+col2.col_in_col2.button('button4')
 
 # And within an expander
 my_expander = st.beta_expander("Expand", expanded=True)
