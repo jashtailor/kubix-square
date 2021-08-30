@@ -83,9 +83,8 @@ def twitter(name):
   date_time = []
   location = []
 
-  for words in search_words:
-    tweets = tw.Cursor(api.search,
-              q=search_words,
+  tweets = tw.Cursor(api.search,
+              q=name,
               lang="en",
               since=date_since).items(10000)
   for tweet in tweets:
@@ -100,21 +99,26 @@ def twitter(name):
   df_twitter['Tweets'] = tweet_text
   df_twitter['Created at'] = date_time
   df_twitter['Location'] = location
+  
+  return df_twitter
 
 
-# NEWS API    
-# Init
-newsapi = NewsApiClient(api_key='56885df3e9f04b6a9762a4b1a33f9f1e')
+def news_api(name):
+  # NEWS API    
+  # Init
+  newsapi = NewsApiClient(api_key='56885df3e9f04b6a9762a4b1a33f9f1e')
 
-# /v2/everything
-all_articles = newsapi.get_everything(q='Bitcoin',
+  # /v2/everything
+  all_articles = newsapi.get_everything(q=name,
                                       sources='axios, bloomberg, business-insider, crypto-coins-news, engadget, financial-post, google-news, hacker-news, mashable, next-big-futre, recode, reuters, techcrunch-cn, techradar, wired, the-wall-street-journal, bbc-news, fortune',
                                       domains='bbc.co.uk,techcrunch.com',
                                       from_param='2021-18-20',
                                       to='2021-08-30',
                                       language='en',
                                       sort_by='relevancy',
-                                      page=1)    
+                                      page=1)   
+  
+  return all_articles
     
 st.write("""
 # Malkovich """)
