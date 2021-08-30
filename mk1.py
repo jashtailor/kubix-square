@@ -21,6 +21,13 @@ c1, c2, c3, c4 = st.beta_columns((2, 1, 1, 1))
 
 def my_widget(key):
     st.subheader('Hello there!')    
+    option = st.selectbox(
+     'Please select your preferred method',
+     ('None', 'All', search_words[0], search_words[1], search_words[2], search_words[3], search_words[4], search_words[5], search_words[6], search_words[7], search_words[8], search_words[9]))
+    if option == 'All':
+        time_series()
+    elif option == search_words[0]:
+        sentiment_analysis()
     clicked = st.button("Click me " + key)
 
 # This works in the main area
@@ -68,13 +75,6 @@ my_expander = st.beta_expander("Expand", expanded=True)
 with my_expander:
     clicked = my_widget("second")
 
-option = st.selectbox(
-     'Please select your preferred method',
-     ('None', 'All', search_words[0], search_words[1], search_words[2], search_words[3], search_words[4], search_words[5], search_words[6], search_words[7], search_words[8], search_words[9]))
 
-if option == 'All':
-   time_series()
-elif option == search_words[0]:
-   sentiment_analysis()
 
 
