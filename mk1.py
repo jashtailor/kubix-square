@@ -63,7 +63,7 @@ elif option == search_words[0]:
 def my_widget(key):
     st.subheader('Hello there!')    
    
-clicked = st.button("Click me " + key)
+
 # This works in the main area
 clicked = my_widget("first")
 
