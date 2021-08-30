@@ -15,7 +15,7 @@ from requests.exceptions import ConnectionError, Timeout, TooManyRedirects
 import simplejson as json
 import streamlit as st
 
-st.set_page_config(layout="wide")
+
 
 # c1, c2, c3, c4 = st.beta_columns((2, 1, 1, 1))
 
@@ -58,7 +58,7 @@ if option == 'All':
 elif option == search_words[0]:
   sentiment_analysis()
  
-
+st.set_page_config(layout="wide")
     
 def my_widget(key):
     st.subheader('Hello there!')    
