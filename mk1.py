@@ -11,6 +11,8 @@ import plotly.figure_factory as ff
 from datetime import date
 import streamlit as st
 
+st.set_page_config(layout="wide")
+
 def my_widget(key):
     st.subheader('Hello there!')
     clicked = st.button("Click me " + key)
