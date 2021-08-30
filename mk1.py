@@ -120,12 +120,12 @@ st.write("""
 
 col1,col2 = st.beta_columns(2) 
 col1.write("First Column")
-col1.button("Hello")
+
 col2.success("Second COlumn")
-col2.button("Hello From Col2")
+
 
 col3,col4 = st.beta_columns(2) 
 col3.success("Second COlumn")
-st.button("Hello From Col2")
+
 col4.success("Second COlumn")
-st.button("Hello From Col2")
+
