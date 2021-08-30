@@ -67,7 +67,8 @@ for i in range(0,10):
     symbol.append(data['data'][i]['symbol'])
     search_words.append(data['data'][i]['name'])
 
-
+choice = st.sidebar.selectbox("Menu", search_words)
+    
 def twitter(name):
   # TWITTER API
   consumer_key= 'uLPC3KfMtGFcEeq4CxEOohZeg'
