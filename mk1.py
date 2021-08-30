@@ -31,6 +31,11 @@ from newsapi import NewsApiClient
 
 import streamlit as st
 
+# Use the full page instead of a narrow central column
+st.beta_set_page_config(layout="wide")
+
+# Space out the maps so the first one is 2x the size of the other three
+c1, c2, c3, c4 = st.beta_columns((2, 1, 1, 1))
 
 # COINBASE API
 # Before we take data from Twitter we need to know the top 10 cryptocurrencies based on market capitalization for which we use the Coinbase API
@@ -79,25 +84,3 @@ all_articles = newsapi.get_everything(q='Bitcoin',
 st.write("""
 # Malkovich """)
 
-
-
-# Randomly fill a dataframe and cache it
-@st.cache(allow_output_mutation=True)
-def get_dataframe():
-    return pd.DataFrame(
-        np.random.randn(50, 20),
-        columns=('col %d' % i for i in range(20)))
-
-
-df = get_dataframe()
-
-# Create row, column, and value inputs
-row = st.number_input('row', max_value=df.shape[0])
-col = st.number_input('column', max_value=df.shape[1])
-value = st.number_input('value')
-
-# Change the entry at (row, col) to the given value
-df.values[row][col] = value
-
-# And display the result!
-st.dataframe(df)
