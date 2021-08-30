@@ -26,12 +26,6 @@ col1, col2 = st.beta_columns(2)
 col1.write('I am base col1!')
 col2.write('I am base col2!')
 
-col_in_col1, col_in_col2 = st.beta_columns(2)
-col1.col_in_col1.button('button1')
-col1.col_in_col2.button('button2')
-
-col2.col_in_col1.button('button3')
-col2.col_in_col2.button('button4')
 
 # And within an expander
 my_expander = st.beta_expander("Expand", expanded=True)
