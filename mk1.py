@@ -1,3 +1,5 @@
+import yfinance as yf
+
 import pandas as pd
 import numpy as np
 
@@ -26,7 +28,6 @@ import simplejson as json
 
 import itertools
 
-import yfinance as yf
 
 import tweepy as tw
 
