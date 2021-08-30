@@ -26,6 +26,8 @@ import simplejson as json
 
 import itertools
 
+import yfinance as yf
+
 import tweepy as tw
 
 from newsapi import NewsApiClient
@@ -70,7 +72,20 @@ for i in range(0,10):
     technicalities.append(data['data'][i]['quote']['USD'])
     symbol.append(data['data'][i]['symbol'])
     search_words.append(data['data'][i]['name'])
-    
+
+def func(name):
+    today = date.today()
+    tickerSymbol = name+'-USD'
+    tickerData = yf.Ticker(tickerSymbol)
+    df = tickerData.history(period='1d', start='2000-01-01', end=today)
+    df.reset_index(inplace=True)
+     
+    fig = go.Figure(data=go.Ohlc(x=df['Date'],
+                    open=df['Open'],
+                    high=df['High'],
+                    low=df['Low'],
+                    close=df['Close']))
+    fig.show()    
     
 def twitter(name):
   # TWITTER API
@@ -90,7 +105,7 @@ def twitter(name):
   tweets = tw.Cursor(api.search,
               q=name,
               lang="en",
-              since=date_since).items(10000)
+              since=date_since).items(100)
   for tweet in tweets:
     str1 = tweet.text
     str2 = tweet.created_at
@@ -135,3 +150,4 @@ if choice == search_words[0]:
   df_t = twitter(search_words[0])
   df_n = news_api(search_api[0])
   col4.write(df_n['title'])
+  func(symbol[0])
