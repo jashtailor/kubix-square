@@ -34,12 +34,6 @@ import streamlit as st
 # Use the full page instead of a narrow central column
 st.set_page_config(layout="wide")
 
-col1,col2 = st.beta_columns(2) 
-col1.success("First Column")
-col1.button("Hello")
-col2.success("Second COlumn")
-col2.button("Hello From Col2")
-
 # COINBASE API
 # Before we take data from Twitter we need to know the top 10 cryptocurrencies based on market capitalization for which we use the Coinbase API
 url = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest'
@@ -86,4 +80,10 @@ all_articles = newsapi.get_everything(q='Bitcoin',
     
 st.write("""
 # Malkovich """)
+
+col1,col2 = st.beta_columns(2) 
+col1.success("First Column")
+col1.button("Hello")
+col2.success("Second COlumn")
+col2.button("Hello From Col2")
 
