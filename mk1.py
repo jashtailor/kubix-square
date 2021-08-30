@@ -67,23 +67,24 @@ for i in range(0,10):
     symbol.append(data['data'][i]['symbol'])
     search_words.append(data['data'][i]['name'])
 
-    
-# TWITTER API
-consumer_key= 'uLPC3KfMtGFcEeq4CxEOohZeg'
-consumer_secret= 'tywsJRvcr2zz5ICg7bkadbSIIjhGFmAlOLjJECjPqMfaRuwc1T'
-access_token= '1300465599823314944-VkC6tWnEUrbxTZ1wYpWIxbc8LQCPNL'
-access_token_secret= 'DDiF0cmidxoQlT2rgEUCGkP4E2DI8PBwz6WMS5QL51zOG'
-auth = tw.OAuthHandler(consumer_key, consumer_secret)
-auth.set_access_token(access_token, access_token_secret)
-api = tw.API(auth, wait_on_rate_limit=True)
 
-date_since = '2021-04-01'
-tweet_text = []
-date_time = []
-location = []
+def twitter(name):
+  # TWITTER API
+  consumer_key= 'uLPC3KfMtGFcEeq4CxEOohZeg'
+  consumer_secret= 'tywsJRvcr2zz5ICg7bkadbSIIjhGFmAlOLjJECjPqMfaRuwc1T'
+  access_token= '1300465599823314944-VkC6tWnEUrbxTZ1wYpWIxbc8LQCPNL'
+  access_token_secret= 'DDiF0cmidxoQlT2rgEUCGkP4E2DI8PBwz6WMS5QL51zOG'
+  auth = tw.OAuthHandler(consumer_key, consumer_secret)
+  auth.set_access_token(access_token, access_token_secret)
+  api = tw.API(auth, wait_on_rate_limit=True)
 
-for words in search_words:
-  tweets = tw.Cursor(api.search,
+  date_since = '2021-04-01'
+  tweet_text = []
+  date_time = []
+  location = []
+
+  for words in search_words:
+    tweets = tw.Cursor(api.search,
               q=search_words,
               lang="en",
               since=date_since).items(10000)
@@ -95,10 +96,10 @@ for words in search_words:
     date_time.append(str2)
     location.append(str3)
 
-df_twitter = pd.DataFrame()
-df_twitter['Tweets'] = tweet_text
-df_twitter['Created at'] = date_time
-df_twitter['Location'] = location
+  df_twitter = pd.DataFrame()
+  df_twitter['Tweets'] = tweet_text
+  df_twitter['Created at'] = date_time
+  df_twitter['Location'] = location
 
 
 # NEWS API    
