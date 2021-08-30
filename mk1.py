@@ -89,6 +89,6 @@ col2.button("Hello From Col2")
 
 col3,col4 = st.beta_columns(2) 
 col3.success("Second COlumn")
-col3.button("Hello From Col2")
+st.button("Hello From Col2")
 col4.success("Second COlumn")
-col4.button("Hello From Col2")
+st.button("Hello From Col2")
