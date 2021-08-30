@@ -79,12 +79,10 @@ all_articles = newsapi.get_everything(q='Bitcoin',
 st.write("""
 # Malkovich """)
 
-col1, col2 = st.beta_columns(2)
-
-original = 'Hi'
-col1.header("Original")
-#col1.image(original, use_column_width=True)
-
-grayscale = 'hello'
-col2.header("Grayscale")
-#col2.image(grayscale, use_column_width=True)
+st.title("Let's create a table!")
+for i in range(1, 10):
+    cols = st.beta_columns(4)
+    cols[0].write(f'{i}')
+    cols[1].write(f'{i * i}')
+    cols[2].write(f'{i * i * i}')
+    cols[3].write('x' * i)
