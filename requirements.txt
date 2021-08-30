@@ -6,5 +6,5 @@ plotly.express==0.4.1
 datetime==4.3
 coinbase==2.1.0
 requests==2.25.1
-json==2.0.9
+simplejson==3.17.5
 streamlit==0.81.0
