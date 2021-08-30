@@ -34,8 +34,11 @@ import streamlit as st
 # Use the full page instead of a narrow central column
 st.set_page_config(layout="wide")
 
-# Space out the maps so the first one is 2x the size of the other three
-c1, c2, c3, c4 = st.beta_columns((2, 1, 1, 1))
+col1,col2 = st.beta_columns(2) 
+col1.success("First Column")
+col1.button("Hello")
+col2.success("Second COlumn")
+col2.button("Hello From Col2")
 
 # COINBASE API
 # Before we take data from Twitter we need to know the top 10 cryptocurrencies based on market capitalization for which we use the Coinbase API
