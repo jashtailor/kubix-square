@@ -25,7 +25,7 @@ url = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest'
 parameters = {
   'start':'1',
   'limit':'5000',
-  'convert':'USD'
+  'convert':'INR'
 }
 headers = {
   'Accepts': 'application/json',
@@ -53,7 +53,7 @@ for i in range(0,10):
 def my_widget(key):
     st.subheader('Hello there!')    
     option = st.selectbox(
-     'Please select your preferred method',
+     'Please select your preferred cryptocurrency',
      ('None', 'All', search_words[0], search_words[1], search_words[2], search_words[3], search_words[4], search_words[5], search_words[6], search_words[7], search_words[8], search_words[9]))
     if option == 'All':
         time_series()
