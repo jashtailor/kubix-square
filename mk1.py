@@ -85,7 +85,7 @@ def func(name):
                     high=df['High'],
                     low=df['Low'],
                     close=df['Close']))
-    fig.show()    
+    st.plotly_chart(fig)    
     
 def twitter(name):
   # TWITTER API
