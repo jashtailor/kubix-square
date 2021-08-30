@@ -47,15 +47,8 @@ for i in range(0,10):
     symbol.append(data['data'][i]['symbol'])
     search_words.append(data['data'][i]['name'])
 
-col1,col2 = st.beta_columns(2)        
-option = st.selectbox(
-     'Please select your preferred cryptocurrency',
-     ('None', 'All', search_words[0], search_words[1], search_words[2], search_words[3], search_words[4], search_words[5], search_words[6], search_words[7], search_words[8], search_words[9]))
-if option == 'All':
-  time_series()
-elif option == search_words[0]:
-  sentiment_analysis()
- 
+st.write("""
+# Malkovich """)
 
 
 
