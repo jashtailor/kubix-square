@@ -70,7 +70,7 @@ with my_expander:
 
 option = st.selectbox(
      'Please select your preferred method',
-     ('None', 'All', search_words[0]))
+     ('None', 'All', search_words[0], search_words[1], search_words[2], search_words[3], search_words[4], search_words[5], search_words[6], search_words[7], search_words[8], search_words[9]))
 
 if option == 'All':
    time_series()
