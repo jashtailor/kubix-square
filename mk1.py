@@ -82,7 +82,7 @@ st.write("""
 # Malkovich """)
 
 col1,col2 = st.beta_columns(2) 
-col1.success("First Column")
+col1.write("First Column")
 col1.button("Hello")
 col2.success("Second COlumn")
 col2.button("Hello From Col2")
