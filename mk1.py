@@ -12,7 +12,7 @@ from datetime import date
 from coinbase.wallet.client import Client
 from requests import Request, Session
 from requests.exceptions import ConnectionError, Timeout, TooManyRedirects
-import json
+import simplejson as json
 import streamlit as st
 
 st.set_page_config(layout="wide")
