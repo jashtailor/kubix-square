@@ -26,7 +26,7 @@ def my_widget(key):
 # This works in the main area
 clicked = my_widget("first")
 
-# coinbase api
+# COINBASE API
 # Before we take data from Twitter we need to know the top 10 cryptocurrencies based on market capitalization for which we use the Coinbase API
 url = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest'
 parameters = {
@@ -68,5 +68,13 @@ my_expander = st.beta_expander("Expand", expanded=True)
 with my_expander:
     clicked = my_widget("second")
 
+option = st.selectbox(
+     'Please select your preferred method',
+     ('None', 'All', search_words[0]))
+
+if option == 'All':
+   time_series()
+elif option == search_words[0]:
+   sentiment_analysis()
 
 
