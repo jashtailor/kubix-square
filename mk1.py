@@ -27,6 +27,7 @@ from requests.exceptions import ConnectionError, Timeout, TooManyRedirects
 import simplejson as json
 
 import itertools
+from newsapi import NewsApiClient
 
 import streamlit as st
 
