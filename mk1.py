@@ -32,7 +32,7 @@ from newsapi import NewsApiClient
 import streamlit as st
 
 # Use the full page instead of a narrow central column
-st.beta_set_page_config(layout="wide")
+st.set_page_config(layout="wide")
 
 # Space out the maps so the first one is 2x the size of the other three
 c1, c2, c3, c4 = st.beta_columns((2, 1, 1, 1))
