@@ -31,6 +31,7 @@ from newsapi import NewsApiClient
 
 import streamlit as st
 
+st.beta_set_page_config(layout="wide")
 
 # COINBASE API
 # Before we take data from Twitter we need to know the top 10 cryptocurrencies based on market capitalization for which we use the Coinbase API
@@ -79,7 +80,7 @@ all_articles = newsapi.get_everything(q='Bitcoin',
 st.write("""
 # Malkovich """)
 
-st.beta_set_page_config(layout="wide")
+
 
 st.title("Let's create a table!")
 for i in range(1, 10):
