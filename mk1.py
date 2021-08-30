@@ -32,7 +32,5 @@ my_expander = st.beta_expander("Expand", expanded=True)
 with my_expander:
     clicked = my_widget("second")
 
-# AND in st.sidebar!
-with st.sidebar:
-    clicked = my_widget("third")
+
 
