@@ -31,7 +31,6 @@ from newsapi import NewsApiClient
 
 import streamlit as st
 
-st.beta_columns('wide')
 
 # COINBASE API
 # Before we take data from Twitter we need to know the top 10 cryptocurrencies based on market capitalization for which we use the Coinbase API
@@ -80,9 +79,12 @@ all_articles = newsapi.get_everything(q='Bitcoin',
 st.write("""
 # Malkovich """)
 
-dataframe = pd.DataFrame(
-    np.random.randn(10, 20),
-    columns=('col %d' % i for i in range(20)))
+col1, col2 = st.beta_columns(2)
 
-st.dataframe(dataframe.style.highlight_max(axis=0))
+original = 'Hi'
+col1.header("Original")
+#col1.image(original, use_column_width=True)
 
+grayscale = 'hello'
+col2.header("Grayscale")
+#col2.image(grayscale, use_column_width=True)
