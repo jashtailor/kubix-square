@@ -31,6 +31,7 @@ from newsapi import NewsApiClient
 
 import streamlit as st
 
+st.beta_columns('wide')
 
 # COINBASE API
 # Before we take data from Twitter we need to know the top 10 cryptocurrencies based on market capitalization for which we use the Coinbase API
