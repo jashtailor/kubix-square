@@ -1,3 +1,4 @@
+pip==21.2.4
 tweepy==3.10.0
 yfinance==0.1.63
 pandas==1.2.3
