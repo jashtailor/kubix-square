@@ -1,6 +1,8 @@
 import tweepy as tw
+
 import pandas as pd
 import numpy as np
+
 import nltk 
 nltk.download('wordnet')
 from nltk.stem import WordNetLemmatizer, SnowballStemmer
@@ -8,14 +10,22 @@ from nltk.stem.porter import *
 import gensim
 from gensim.utils import simple_preprocess
 from gensim.parsing.preprocessing import STOPWORDS
+import tensorflow as tf
+from tensorflow import keras
+from tensorflow.keras.preprocessing.text import Tokenizer
+from tensorflow.keras.preprocessing.sequence import pad_sequences
+
 import plotly.express as px
 import plotly.graph_objects as go
 import plotly.figure_factory as ff
+
 from datetime import date
+
 from coinbase.wallet.client import Client
 from requests import Request, Session
 from requests.exceptions import ConnectionError, Timeout, TooManyRedirects
 import simplejson as json
+
 import streamlit as st
 
 
