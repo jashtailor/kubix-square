@@ -9,9 +9,9 @@ from nltk.stem import WordNetLemmatizer, SnowballStemmer
 from nltk.stem.porter import *
 
 
-#import gensim
-#from gensim.utils import simple_preprocess
-#from gensim.parsing.preprocessing import STOPWORDS
+import gensim
+from gensim.utils import simple_preprocess
+from gensim.parsing.preprocessing import STOPWORDS
 import tensorflow as tf
 from tensorflow import keras
 from tensorflow.keras.preprocessing.text import Tokenizer
