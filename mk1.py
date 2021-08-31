@@ -161,7 +161,8 @@ if choice == search_words[2]:
                     low=ohlc['Low'],
                     close=ohlc['Close']))
   st.plotly_chart(fig)   
- 
+  for i in range(len(df_n['title'])):
+    st.write(i)
   st.write(df_n[['title']])
   
   
