@@ -3,6 +3,7 @@ tweepy==3.10.0
 yfinance==0.1.63
 pandas==1.2.3
 nltk==3.6.1
+gensim==4.0.1
 tensorflow==2.5.0
 plotly.express==0.4.1
 datetime==4.3
