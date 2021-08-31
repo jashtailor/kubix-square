@@ -21,6 +21,10 @@ import plotly.express as px
 import plotly.graph_objects as go
 import plotly.figure_factory as ff
 
+from sklearn.ensemble import AdaBoostClassifier
+from lightgbm import LGBMClassifier
+from sklearn.ensemble import GradientBoostingClassifier
+
 from datetime import date
 
 from coinbase.wallet.client import Client
