@@ -41,6 +41,9 @@ import streamlit as st
 st.write("""
 # Malkovich """)
 
+link = '[GitHub](http://github.com)'
+st.markdown(link, unsafe_allow_html=True)
+
 
 # COINBASE API
 # Before we take data from Twitter we need to know the top 10 cryptocurrencies based on market capitalization for which we use the Coinbase API
