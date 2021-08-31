@@ -409,3 +409,69 @@ if choice == search_words[7]:
     link = '[' + df_n['title'][i] + ']' + '(' + df_n['url'][i] + ')'
     st.write(link, unsafe_allow_html=True)
 # ------------------------------------------------------------------------------------------------------------------------------------------------
+
+# ------------------------------------------------------------------------------------------------------------------------------------------------
+if choice == search_words[8]:
+  df_t = twitter(search_words[8])
+  df_n = news_api(search_words[8])
+  ohlc = func(symbol[8])
+  fig = go.Figure(data=go.Ohlc(x=ohlc['Date'],
+                    open=ohlc['Open'],
+                    high=ohlc['High'],
+                    low=ohlc['Low'],
+                    close=ohlc['Close']))
+  st.write(choice+' in USD')
+  st.plotly_chart(fig)   
+  st.write(pd.DataFrame(technicals[8].values(), index = technicals[1].keys(), columns = ['Values'], dtype=str))
+  st.write('Public Sentiment on '+choice)
+  fig_SA = px.bar(df_t, x='Sentiment', y='Count of Sentiment')
+  st.plotly_chart(fig_SA)   
+  st.write('News regarding '+choice)
+  for i in range(len(df_n['title'])):
+    link = '[' + df_n['title'][i] + ']' + '(' + df_n['url'][i] + ')'
+    st.write(link, unsafe_allow_html=True)
+# ------------------------------------------------------------------------------------------------------------------------------------------------
+
+# ------------------------------------------------------------------------------------------------------------------------------------------------
+if choice == search_words[9]:
+  df_t = twitter(search_words[9])
+  df_n = news_api(search_words[9])
+  ohlc = func(symbol[9])
+  fig = go.Figure(data=go.Ohlc(x=ohlc['Date'],
+                    open=ohlc['Open'],
+                    high=ohlc['High'],
+                    low=ohlc['Low'],
+                    close=ohlc['Close']))
+  st.write(choice+' in USD')
+  st.plotly_chart(fig)   
+  st.write(pd.DataFrame(technicals[9].values(), index = technicals[1].keys(), columns = ['Values'], dtype=str))
+  st.write('Public Sentiment on '+choice)
+  fig_SA = px.bar(df_t, x='Sentiment', y='Count of Sentiment')
+  st.plotly_chart(fig_SA)   
+  st.write('News regarding '+choice)
+  for i in range(len(df_n['title'])):
+    link = '[' + df_n['title'][i] + ']' + '(' + df_n['url'][i] + ')'
+    st.write(link, unsafe_allow_html=True)
+# ------------------------------------------------------------------------------------------------------------------------------------------------
+
+# ------------------------------------------------------------------------------------------------------------------------------------------------
+if choice == search_words[10]:
+  df_t = twitter(search_words[10])
+  df_n = news_api(search_words[10])
+  ohlc = func(symbol[10])
+  fig = go.Figure(data=go.Ohlc(x=ohlc['Date'],
+                    open=ohlc['Open'],
+                    high=ohlc['High'],
+                    low=ohlc['Low'],
+                    close=ohlc['Close']))
+  st.write(choice+' in USD')
+  st.plotly_chart(fig)   
+  st.write(pd.DataFrame(technicals[10].values(), index = technicals[1].keys(), columns = ['Values'], dtype=str))
+  st.write('Public Sentiment on '+choice)
+  fig_SA = px.bar(df_t, x='Sentiment', y='Count of Sentiment')
+  st.plotly_chart(fig_SA)   
+  st.write('News regarding '+choice)
+  for i in range(len(df_n['title'])):
+    link = '[' + df_n['title'][i] + ']' + '(' + df_n['url'][i] + ')'
+    st.write(link, unsafe_allow_html=True)
+# ------------------------------------------------------------------------------------------------------------------------------------------------
