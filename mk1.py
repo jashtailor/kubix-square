@@ -30,6 +30,7 @@ import simplejson as json
 
 import itertools
 
+import pickle
 
 import tweepy as tw
 
@@ -65,7 +66,7 @@ try:
 except (ConnectionError, Timeout, TooManyRedirects) as e:
   print(e)
 
-technicalities = []
+technicalities = ['None']
 symbol = ['NaN']
 search_words = ['None']
 for i in range(0,10):
@@ -73,6 +74,8 @@ for i in range(0,10):
     symbol.append(data['data'][i]['symbol'])
     search_words.append(data['data'][i]['name'])
 
+
+ 
 def func(name):
     today = date.today()
     tickerSymbol = name+'-USD'
