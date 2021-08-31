@@ -51,31 +51,20 @@ def lemmatize_stemming(text):
 
 # Tokenize and lemmatize
 def preprocess(text):
-    
     result = []
-    
     for token in gensim.utils.simple_preprocess(text) :
-        
         if token not in gensim.parsing.preprocessing.STOPWORDS and len(token) > 3:
-            
-            # TODO: Apply lemmatize_stemming() on the token, then add to the results list
             result.append(lemmatize_stemming(token))
-    
+            
     return result
 
-def further_processing(docs):
-    # this is the step where each word is given a number from which it can be recognized
+def further_processing(processed_docs):
     tokenizer = Tokenizer(oov_token='<00V>')
     tokenizer.fit_on_texts(processed_docs)
     word_index = tokenizer.word_index
-    #print(word_index)
-
-    # here the tokenized numbers are put into sequences as compared to the post titles
     sequences = tokenizer.texts_to_sequences(processed_docs)
-    
-
-    # here we make all the sentences of equal length
     padded = pad_sequences(sequences, padding='post', maxlen=18)
+    
     return padded
 # ------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -93,6 +82,7 @@ def models(padded_1):
 
   def just_for_prediction(model, tweets):
     prediction = model.predict(tweets)
+    
     return prediction
 
   lst2 = just_for_prediction(LGBM, padded_1)
@@ -215,6 +205,7 @@ def news_api(name):
                                       page=1)   
   dict_0 = all_articles['articles']
   df_0 = pd.DataFrame(dict_0)
+    
   return df_0
 # ------------------------------------------------------------------------------------------------------------------------------------------------
 
