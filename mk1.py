@@ -162,9 +162,10 @@ if choice == search_words[2]:
                     close=ohlc['Close']))
   st.plotly_chart(fig)   
   for i in range(len(df_n['title'])):
-    link = '[link]https://github.com/'
-    st.markdown(link, unsafe_allow_html=True)
+    link = '[link](https://github.com/)'
+    
     st.write(df_n['title'][i])
+    st.write(link, unsafe_allow_html=True)
   st.write(df_n[['title']])
   
   
