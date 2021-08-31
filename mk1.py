@@ -42,7 +42,90 @@ import streamlit as st
 st.write("""
 # Malkovich """)
 
+# ------------------------------------------------------------------------------------------------------------------------------------------------
+# PREPROCESSING
+stemmer = SnowballStemmer("english")
 
+def lemmatize_stemming(text):
+    return stemmer.stem(WordNetLemmatizer().lemmatize(text, pos='v'))
+
+# Tokenize and lemmatize
+def preprocess(text):
+    
+    result = []
+    
+    for token in gensim.utils.simple_preprocess(text) :
+        
+        if token not in gensim.parsing.preprocessing.STOPWORDS and len(token) > 3:
+            
+            # TODO: Apply lemmatize_stemming() on the token, then add to the results list
+            result.append(lemmatize_stemming(token))
+    
+    return result
+
+def further_processing(docs):
+    # this is the step where each word is given a number from which it can be recognized
+    tokenizer = Tokenizer(oov_token='<00V>')
+    tokenizer.fit_on_texts(processed_docs)
+    word_index = tokenizer.word_index
+    #print(word_index)
+
+    # here the tokenized numbers are put into sequences as compared to the post titles
+    sequences = tokenizer.texts_to_sequences(processed_docs)
+    
+
+    # here we make all the sentences of equal length
+    padded = pad_sequences(sequences, padding='post', maxlen=18)
+    return padded
+# ------------------------------------------------------------------------------------------------------------------------------------------------
+
+# ------------------------------------------------------------------------------------------------------------------------------------------------
+# IMPORTING THE MODELS    
+def models(padded_1):
+  with open('GBC', 'rb') as f:
+    GBC = pickle.load(f)
+
+  with open('LGBM', 'rb') as f:
+    LGBM = pickle.load(f)    
+
+  with open('AdaB', 'rb') as f:
+    AdaB = pickle.load(f) 
+
+  def just_for_prediction(model, tweets):
+    prediction = model.predict(tweets)
+    return prediction
+
+  lst2 = just_for_prediction(LGBM, padded_1)
+  lst3 = just_for_prediction(AdaB, padded_1)
+  lst4 = just_for_prediction(GBC, padded_1)
+  lst5 = range(len(lst2))
+
+  lst0 = []
+  negative = 0
+  neutral = 0 
+  positive = 0
+  for (b,c,d) in zip(lst2,lst3,lst4):
+      lst6 = list([b,c,d])
+      # print(lst6)
+      if lst6.count(-1)>lst6.count(1) and lst6.count(-1)>lst6.count(0):
+          str1 = 'Negative'
+          negative = negative + 1 
+      elif lst6.count(0)>lst6.count(1) and  lst6.count(0)>lst6.count(-1):
+          str1 = 'Neutral'
+          neutral = neutral + 1
+      else:
+          str1 = 'Positive'
+          positive = positive + 1
+      lst0.append(str1)
+
+  lst7 = ['Negative', 'Neutral', 'Positive']
+  lst8 = [negative, neutral, positive]
+  df3 = pd.DataFrame({'Sentiment': lst7, 'Count of Sentiment':lst8})
+  
+  return df3
+# ------------------------------------------------------------------------------------------------------------------------------------------------
+
+# ------------------------------------------------------------------------------------------------------------------------------------------------
 # COINBASE API
 # Before we take data from Twitter we need to know the top 10 cryptocurrencies based on market capitalization for which we use the Coinbase API
 url = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest'
@@ -73,20 +156,11 @@ for i in range(0,10):
     technicalities.append(data['data'][i]['quote']['USD'])
     symbol.append(data['data'][i]['symbol'])
     search_words.append(data['data'][i]['name'])
-
-
+# ------------------------------------------------------------------------------------------------------------------------------------------------
  
-def func(name):
-    today = date.today()
-    tickerSymbol = name+'-USD'
-    tickerData = yf.Ticker(tickerSymbol)
-    df = tickerData.history(period='1d', start='2000-01-01', end=today)
-    df.reset_index(inplace=True)
-    
-    return df
-        
+# ------------------------------------------------------------------------------------------------------------------------------------------------   
+# TWITTER API
 def twitter(name):
-  # TWITTER API
   consumer_key= 'uLPC3KfMtGFcEeq4CxEOohZeg'
   consumer_secret= 'tywsJRvcr2zz5ICg7bkadbSIIjhGFmAlOLjJECjPqMfaRuwc1T'
   access_token= '1300465599823314944-VkC6tWnEUrbxTZ1wYpWIxbc8LQCPNL'
@@ -117,11 +191,16 @@ def twitter(name):
   df_twitter['Created at'] = date_time
   df_twitter['Location'] = location
   
-  return df_twitter
+  processed_docs = df_twitter['Tweets'].map(preprocess)
+  padded = further_processing(processed_docs)
+  df_SA = models(padded)
+  
+  return df_SA
+# ------------------------------------------------------------------------------------------------------------------------------------------------
 
-
-def news_api(name):
-  # NEWS API    
+# ------------------------------------------------------------------------------------------------------------------------------------------------
+# NEWS API   
+def news_api(name): 
   # Init
   newsapi = NewsApiClient(api_key='56885df3e9f04b6a9762a4b1a33f9f1e')
 
@@ -137,6 +216,25 @@ def news_api(name):
   dict_0 = all_articles['articles']
   df_0 = pd.DataFrame(dict_0)
   return df_0
+# ------------------------------------------------------------------------------------------------------------------------------------------------
+
+# ------------------------------------------------------------------------------------------------------------------------------------------------
+# OHLC GRAPH
+def func(name):
+    today = date.today()
+    tickerSymbol = name+'-USD'
+    tickerData = yf.Ticker(tickerSymbol)
+    df = tickerData.history(period='1d', start='2000-01-01', end=today)
+    df.reset_index(inplace=True)
+    
+    return df
+# ------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+  
+
+
+
     
 
 choice = st.sidebar.selectbox("Menu", search_words)
@@ -152,6 +250,8 @@ if choice == search_words[1]:
                     close=ohlc['Close']))
   st.write(choice+' in USD')
   st.plotly_chart(fig)   
+  fig_SA = px.bar(df_t, x='Sentiment', y='Count of Sentiment')
+  st.plotly_chart(fig_SA)
   for i in range(len(df_n['title'])):
     link = '[' + df_n['title'][i] + ']' + '(' + df_n['url'][i] + ')'
     st.write(link, unsafe_allow_html=True)
