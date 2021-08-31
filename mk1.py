@@ -236,7 +236,7 @@ choice = st.sidebar.selectbox("Menu", search_words)
 
 if choice == search_words[0]:
     st.write("""
-    This website runs entirely on your local machine, we do not have a backend or a database, all we ask from you is your patience as the time it takes to load this website up entirely depends on the speed on your computer and your internet speed
+    This website runs entirely on your local machine, we do not have a backend or a database, all we ask from you is your patience as the time it takes to load this website up entirely depends on the speed on your computer and your internet.
              """)
 
 # ------------------------------------------------------------------------------------------------------------------------------------------------
