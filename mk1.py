@@ -70,7 +70,7 @@ except (ConnectionError, Timeout, TooManyRedirects) as e:
 
 technicalities = []
 symbol = []
-search_words = []
+search_words = ['None']
 for i in range(0,10):
     technicalities.append(data['data'][i]['quote']['USD'])
     symbol.append(data['data'][i]['symbol'])
