@@ -69,7 +69,7 @@ except (ConnectionError, Timeout, TooManyRedirects) as e:
   print(e)
 
 technicalities = []
-symbol = []
+symbol = ['NaN']
 search_words = ['None']
 for i in range(0,10):
     technicalities.append(data['data'][i]['quote']['USD'])
@@ -149,9 +149,9 @@ col3,col4 = st.columns(2)
 
 choice = st.sidebar.selectbox("Menu", search_words)
 
-if choice == search_words[0]:
-  df_t = twitter(search_words[0])
-  df_n = news_api(search_words[0])
-  ohlc = func(symbol[0])
+if choice == search_words[1]:
+  df_t = twitter(search_words[1])
+  df_n = news_api(search_words[1])
+  ohlc = func(symbol[1])
   col1.write(ohlc)
   col2.write(df_n['title'])
