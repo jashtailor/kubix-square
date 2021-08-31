@@ -26,8 +26,6 @@ from sklearn.ensemble import AdaBoostClassifier
 from lightgbm import LGBMClassifier
 from sklearn.ensemble import GradientBoostingClassifier
 
-from zipfile import ZipFile
-
 from datetime import date
 
 from coinbase.wallet.client import Client
