@@ -21,9 +21,12 @@ import plotly.express as px
 import plotly.graph_objects as go
 import plotly.figure_factory as ff
 
+from sklearn.ensemble import RandomForestClassifier
 from sklearn.ensemble import AdaBoostClassifier
 from lightgbm import LGBMClassifier
 from sklearn.ensemble import GradientBoostingClassifier
+
+from zipfile import ZipFile
 
 from datetime import date
 
@@ -45,6 +48,15 @@ import streamlit as st
 
 st.write("""
 # Malkovich """)
+
+file_name = "RFC.zip"
+with ZipFile(file_name, 'r') as zip:
+    
+    zip.printdir()
+  
+   
+    zip.extractall()
+   
 
 # ------------------------------------------------------------------------------------------------------------------------------------------------
 # PREPROCESSING
