@@ -158,11 +158,11 @@ try:
 except (ConnectionError, Timeout, TooManyRedirects) as e:
   print(e)
 
-technicalities = ['None']
+technicals = ['None']
 symbol = ['NaN']
 search_words = ['None']
 for i in range(0,10):
-    technicalities.append(data['data'][i]['quote']['USD'])
+    technicals.append(data['data'][i]['quote']['USD'])
     symbol.append(data['data'][i]['symbol'])
     search_words.append(data['data'][i]['name'])
 # ------------------------------------------------------------------------------------------------------------------------------------------------
@@ -262,6 +262,7 @@ if choice == search_words[1]:
                     close=ohlc['Close']))
   st.write(choice+' in USD')
   st.plotly_chart(fig) 
+  st.write(technicals[1])
   st.write('Public Sentiment on '+choice)
   fig_SA = px.bar(df_t, x='Sentiment', y='Count of Sentiment')
   st.plotly_chart(fig_SA)
