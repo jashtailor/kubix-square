@@ -26,7 +26,7 @@ from sklearn.ensemble import AdaBoostClassifier
 from lightgbm import LGBMClassifier
 from sklearn.ensemble import GradientBoostingClassifier
 
-from datetime import date
+import datetime 
 
 from coinbase.wallet.client import Client
 from requests import Request, Session
@@ -212,13 +212,17 @@ def twitter(name):
 def news_api(name): 
   # Init
   newsapi = NewsApiClient(api_key='56885df3e9f04b6a9762a4b1a33f9f1e')
-
+    
+  today = date.today()
+  d = datetime.timedelta(days = 5)
+  a = today - d
+    
   # /v2/everything
   all_articles = newsapi.get_everything(q=name,
                                       sources='axios, bloomberg, business-insider, crypto-coins-news, engadget, financial-post, google-news, hacker-news, mashable, next-big-futre, recode, reuters, techcrunch-cn, techradar, wired, the-wall-street-journal, bbc-news, fortune',
                                       domains='bbc.co.uk,techcrunch.com',
-                                      from_param='2021-18-20',
-                                      to='2021-08-30',
+                                      from_param=a,
+                                      to=today,
                                       language='en',
                                       sort_by='relevancy',
                                       page=1)   
