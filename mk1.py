@@ -147,7 +147,7 @@ if choice == search_words[1]:
                     high=ohlc['High'],
                     low=ohlc['Low'],
                     close=ohlc['Close']))
-  fig.update(title = choice+' in USD')
+  st.write(choice+' in USD')
   st.plotly_chart(fig)   
   for i in range(len(df_n['title'])):
     link = '[' + df_n['title'][i] + ']' + '(' + df_n['url'][i] + ')'
