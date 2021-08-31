@@ -84,7 +84,9 @@ def models(padded_1):
   file_name = "RFC.zip"
   with ZipFile(file_name, 'r') as zip:
     zip.printdir()
+    st.write('Extracting all the files now...')
     zip.extractall()
+    st.write('Done!')
   with open('RFC', 'rb') as f:
     RFC = pickle.load(f)  
     
