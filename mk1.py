@@ -144,8 +144,8 @@ def news_api(name):
   return df_0
     
 
-col1,col2 = st.beta_columns(2) 
-col3,col4 = st.beta_columns(2)
+col1,col2 = st.columns(2) 
+col3,col4 = st.columns(2)
 
 choice = st.sidebar.selectbox("Menu", search_words)
 
