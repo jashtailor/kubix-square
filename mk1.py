@@ -38,9 +38,6 @@ from newsapi import NewsApiClient
 import streamlit as st
 
 
-st.set_page_config(layout="wide")
-
-
 st.write("""
 # Malkovich """)
 
@@ -139,9 +136,6 @@ def news_api(name):
   return df_0
     
 
-col1,col2 = st.columns(2) 
-col3,col4 = st.columns(2)
-
 choice = st.sidebar.selectbox("Menu", search_words)
 
 if choice == search_words[1]:
@@ -154,6 +148,20 @@ if choice == search_words[1]:
                     low=ohlc['Low'],
                     close=ohlc['Close']))
   st.plotly_chart(fig)   
-  col3.write(df_n[['title']])
+ 
+  st.write(df_n[['title']])
+  
+if choice == search_words[2]:
+  df_t = twitter(search_words[2])
+  df_n = news_api(search_words[2])
+  ohlc = func(symbol[2])
+  fig = go.Figure(data=go.Ohlc(x=ohlc['Date'],
+                    open=ohlc['Open'],
+                    high=ohlc['High'],
+                    low=ohlc['Low'],
+                    close=ohlc['Close']))
+  st.plotly_chart(fig)   
+ 
+  st.write(df_n[['title']])
   
   
