@@ -152,5 +152,6 @@ choice = st.sidebar.selectbox("Menu", search_words)
 if choice == search_words[0]:
   df_t = twitter(search_words[0])
   df_n = news_api(search_words[0])
-  col4.write(df_n['title'])
-  func(symbol[0])
+  ohlc = func(symbol[0])
+  col1.write(ohlc)
+  col2.write(df_n['title'])
