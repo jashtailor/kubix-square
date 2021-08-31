@@ -81,11 +81,8 @@ def further_processing(processed_docs):
 def models(padded_1):
     
   file_name = "RFC.zip"
-  with ZipFile(file_name, 'r') as zip:
-    zip.printdir()
-    st.write('Extracting all the files now...')
-    zip.extractall()
-    st.write('Done!')
+  with ZipFile(file_name, 'r') as zip1:
+    zip1.extractall()
   with open('RFC', 'rb') as f:
     RFC = pickle.load(f)  
     
@@ -243,20 +240,16 @@ def func(name):
     return df
 # ------------------------------------------------------------------------------------------------------------------------------------------------
 
-
-  
-
-
-
-    
-
+# FRONTEND
 choice = st.sidebar.selectbox("Menu", search_words)
 
+# ------------------------------------------------------------------------------------------------------------------------------------------------
 if choice == search_words[0]:
     st.write("""
     This website runs entirely on your local machine, we do not have a backend or a database, all we ask from you is your patience as the time it takes to load this website up entirely depends on the speed on your computer and your internet.
              """)
-
+# ------------------------------------------------------------------------------------------------------------------------------------------------
+   
 # ------------------------------------------------------------------------------------------------------------------------------------------------
 if choice == search_words[1]:
   df_t = twitter(search_words[1])
