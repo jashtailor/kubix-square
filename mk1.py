@@ -234,6 +234,12 @@ def func(name):
 
 choice = st.sidebar.selectbox("Menu", search_words)
 
+if choice == search_words[0]:
+    st.write("""
+    This website runs entirely on your local machine, we do not have a backend or a database, all we ask from you is your patience as the time it takes to load this website up entirely depends on the speed on your computer and your internet speed
+             """)
+
+# ------------------------------------------------------------------------------------------------------------------------------------------------
 if choice == search_words[1]:
   df_t = twitter(search_words[1])
   df_n = news_api(search_words[1])
@@ -244,14 +250,18 @@ if choice == search_words[1]:
                     low=ohlc['Low'],
                     close=ohlc['Close']))
   st.write(choice+' in USD')
-  st.plotly_chart(fig)   
+  st.plotly_chart(fig) 
+  st.write('Public Sentiment on '+choice)
   fig_SA = px.bar(df_t, x='Sentiment', y='Count of Sentiment')
   st.plotly_chart(fig_SA)
+  st.write('News regarding '+choice)
   for i in range(len(df_n['title'])):
     link = '[' + df_n['title'][i] + ']' + '(' + df_n['url'][i] + ')'
     st.write(link, unsafe_allow_html=True)
+# ------------------------------------------------------------------------------------------------------------------------------------------------
+    
   
-  
+# ------------------------------------------------------------------------------------------------------------------------------------------------  
 if choice == search_words[2]:
   df_t = twitter(search_words[2])
   df_n = news_api(search_words[2])
@@ -261,11 +271,18 @@ if choice == search_words[2]:
                     high=ohlc['High'],
                     low=ohlc['Low'],
                     close=ohlc['Close']))
+  st.write(choice+' in USD')
   st.plotly_chart(fig)   
+  st.write('Public Sentiment on '+choice)
+  fig_SA = px.bar(df_t, x='Sentiment', y='Count of Sentiment')
+  st.plotly_chart(fig_SA)   
+  st.write('News regarding '+choice)
   for i in range(len(df_n['title'])):
     link = '[' + df_n['title'][i] + ']' + '(' + df_n['url'][i] + ')'
     st.write(link, unsafe_allow_html=True)
-    
+# ------------------------------------------------------------------------------------------------------------------------------------------------
+
+# ------------------------------------------------------------------------------------------------------------------------------------------------
 if choice == search_words[3]:
   df_t = twitter(search_words[3])
   df_n = news_api(search_words[3])
@@ -275,11 +292,18 @@ if choice == search_words[3]:
                     high=ohlc['High'],
                     low=ohlc['Low'],
                     close=ohlc['Close']))
+  st.write(choice+' in USD')
   st.plotly_chart(fig)   
+  st.write('Public Sentiment on '+choice)
+  fig_SA = px.bar(df_t, x='Sentiment', y='Count of Sentiment')
+  st.plotly_chart(fig_SA)   
+  st.write('News regarding '+choice)
   for i in range(len(df_n['title'])):
     link = '[' + df_n['title'][i] + ']' + '(' + df_n['url'][i] + ')'
     st.write(link, unsafe_allow_html=True)  
-  
+# ------------------------------------------------------------------------------------------------------------------------------------------------
+
+# ------------------------------------------------------------------------------------------------------------------------------------------------
 if choice == search_words[4]:
   df_t = twitter(search_words[4])
   df_n = news_api(search_words[4])
@@ -289,11 +313,18 @@ if choice == search_words[4]:
                     high=ohlc['High'],
                     low=ohlc['Low'],
                     close=ohlc['Close']))
+  st.write(choice+' in USD')
   st.plotly_chart(fig)   
+  st.write('Public Sentiment on '+choice)
+  fig_SA = px.bar(df_t, x='Sentiment', y='Count of Sentiment')
+  st.plotly_chart(fig_SA)   
+  st.write('News regarding '+choice)
   for i in range(len(df_n['title'])):
     link = '[' + df_n['title'][i] + ']' + '(' + df_n['url'][i] + ')'
     st.write(link, unsafe_allow_html=True) 
+# ------------------------------------------------------------------------------------------------------------------------------------------------
 
+# ------------------------------------------------------------------------------------------------------------------------------------------------
 if choice == search_words[5]:
   df_t = twitter(search_words[5])
   df_n = news_api(search_words[5])
@@ -303,11 +334,18 @@ if choice == search_words[5]:
                     high=ohlc['High'],
                     low=ohlc['Low'],
                     close=ohlc['Close']))
+  st.write(choice+' in USD')
   st.plotly_chart(fig)   
+  st.write('Public Sentiment on '+choice)
+  fig_SA = px.bar(df_t, x='Sentiment', y='Count of Sentiment')
+  st.plotly_chart(fig_SA) 
+  st.write('News regarding '+choice)
   for i in range(len(df_n['title'])):
     link = '[' + df_n['title'][i] + ']' + '(' + df_n['url'][i] + ')'
     st.write(link, unsafe_allow_html=True)    
+# ------------------------------------------------------------------------------------------------------------------------------------------------
 
+# ------------------------------------------------------------------------------------------------------------------------------------------------
 if choice == search_words[6]:
   df_t = twitter(search_words[6])
   df_n = news_api(search_words[6])
@@ -317,11 +355,18 @@ if choice == search_words[6]:
                     high=ohlc['High'],
                     low=ohlc['Low'],
                     close=ohlc['Close']))
+  st.write(choice+' in USD')
   st.plotly_chart(fig)   
+  st.write('Public Sentiment on '+choice)
+  fig_SA = px.bar(df_t, x='Sentiment', y='Count of Sentiment')
+  st.plotly_chart(fig_SA)   
+  st.write('News regarding '+choice)
   for i in range(len(df_n['title'])):
     link = '[' + df_n['title'][i] + ']' + '(' + df_n['url'][i] + ')'
     st.write(link, unsafe_allow_html=True)
+# ------------------------------------------------------------------------------------------------------------------------------------------------
 
+# ------------------------------------------------------------------------------------------------------------------------------------------------
 if choice == search_words[7]:
   df_t = twitter(search_words[7])
   df_n = news_api(search_words[7])
@@ -331,7 +376,13 @@ if choice == search_words[7]:
                     high=ohlc['High'],
                     low=ohlc['Low'],
                     close=ohlc['Close']))
+  st.write(choice+' in USD')
   st.plotly_chart(fig)   
+  st.write('Public Sentiment on '+choice)
+  fig_SA = px.bar(df_t, x='Sentiment', y='Count of Sentiment')
+  st.plotly_chart(fig_SA)   
+  st.write('News regarding '+choice)
   for i in range(len(df_n['title'])):
     link = '[' + df_n['title'][i] + ']' + '(' + df_n['url'][i] + ')'
     st.write(link, unsafe_allow_html=True)
+# ------------------------------------------------------------------------------------------------------------------------------------------------
