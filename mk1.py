@@ -148,8 +148,10 @@ if choice == search_words[1]:
                     low=ohlc['Low'],
                     close=ohlc['Close']))
   st.plotly_chart(fig)   
- 
-  st.write(df_n[['title']])
+  for i in range(len(df_n['title'])):
+    link = '[' + df_n['title'][i] + ']' + '(' + df_n['url'][i] + ')'
+    st.write(link, unsafe_allow_html=True)
+  
   
 if choice == search_words[2]:
   df_t = twitter(search_words[2])
@@ -164,6 +166,73 @@ if choice == search_words[2]:
   for i in range(len(df_n['title'])):
     link = '[' + df_n['title'][i] + ']' + '(' + df_n['url'][i] + ')'
     st.write(link, unsafe_allow_html=True)
+    
+if choice == search_words[3]:
+  df_t = twitter(search_words[3])
+  df_n = news_api(search_words[3])
+  ohlc = func(symbol[3])
+  fig = go.Figure(data=go.Ohlc(x=ohlc['Date'],
+                    open=ohlc['Open'],
+                    high=ohlc['High'],
+                    low=ohlc['Low'],
+                    close=ohlc['Close']))
+  st.plotly_chart(fig)   
+  for i in range(len(df_n['title'])):
+    link = '[' + df_n['title'][i] + ']' + '(' + df_n['url'][i] + ')'
+    st.write(link, unsafe_allow_html=True)  
   
-  
-  
+if choice == search_words[4]:
+  df_t = twitter(search_words[4])
+  df_n = news_api(search_words[4])
+  ohlc = func(symbol[4])
+  fig = go.Figure(data=go.Ohlc(x=ohlc['Date'],
+                    open=ohlc['Open'],
+                    high=ohlc['High'],
+                    low=ohlc['Low'],
+                    close=ohlc['Close']))
+  st.plotly_chart(fig)   
+  for i in range(len(df_n['title'])):
+    link = '[' + df_n['title'][i] + ']' + '(' + df_n['url'][i] + ')'
+    st.write(link, unsafe_allow_html=True) 
+
+if choice == search_words[5]:
+  df_t = twitter(search_words[5])
+  df_n = news_api(search_words[5])
+  ohlc = func(symbol[5])
+  fig = go.Figure(data=go.Ohlc(x=ohlc['Date'],
+                    open=ohlc['Open'],
+                    high=ohlc['High'],
+                    low=ohlc['Low'],
+                    close=ohlc['Close']))
+  st.plotly_chart(fig)   
+  for i in range(len(df_n['title'])):
+    link = '[' + df_n['title'][i] + ']' + '(' + df_n['url'][i] + ')'
+    st.write(link, unsafe_allow_html=True)    
+
+if choice == search_words[6]:
+  df_t = twitter(search_words[6])
+  df_n = news_api(search_words[6])
+  ohlc = func(symbol[6])
+  fig = go.Figure(data=go.Ohlc(x=ohlc['Date'],
+                    open=ohlc['Open'],
+                    high=ohlc['High'],
+                    low=ohlc['Low'],
+                    close=ohlc['Close']))
+  st.plotly_chart(fig)   
+  for i in range(len(df_n['title'])):
+    link = '[' + df_n['title'][i] + ']' + '(' + df_n['url'][i] + ')'
+    st.write(link, unsafe_allow_html=True)
+
+if choice == search_words[7]:
+  df_t = twitter(search_words[7])
+  df_n = news_api(search_words[7])
+  ohlc = func(symbol[7])
+  fig = go.Figure(data=go.Ohlc(x=ohlc['Date'],
+                    open=ohlc['Open'],
+                    high=ohlc['High'],
+                    low=ohlc['Low'],
+                    close=ohlc['Close']))
+  st.plotly_chart(fig)   
+  for i in range(len(df_n['title'])):
+    link = '[' + df_n['title'][i] + ']' + '(' + df_n['url'][i] + ')'
+    st.write(link, unsafe_allow_html=True)
