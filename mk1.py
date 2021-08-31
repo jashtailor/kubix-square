@@ -82,14 +82,9 @@ def func(name):
     tickerData = yf.Ticker(tickerSymbol)
     df = tickerData.history(period='1d', start='2000-01-01', end=today)
     df.reset_index(inplace=True)
-     
-    fig = go.Figure(data=go.Ohlc(x=df['Date'],
-                    open=df['Open'],
-                    high=df['High'],
-                    low=df['Low'],
-                    close=df['Close']))
-    st.plotly_chart(fig)    
     
+    return df
+        
 def twitter(name):
   # TWITTER API
   consumer_key= 'uLPC3KfMtGFcEeq4CxEOohZeg'
@@ -153,5 +148,12 @@ if choice == search_words[1]:
   df_t = twitter(search_words[1])
   df_n = news_api(search_words[1])
   ohlc = func(symbol[1])
+  fig = go.Figure(data=go.Ohlc(x=ohlc['Date'],
+                    open=ohlc['Open'],
+                    high=ohlc['High'],
+                    low=ohlc['Low'],
+                    close=ohlc['Close']))
+  st.plotly_chart(fig)    
+
   col1.write(ohlc)
   col2.write(df_n['title'])
