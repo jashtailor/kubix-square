@@ -49,14 +49,7 @@ import streamlit as st
 st.write("""
 # Malkovich """)
 
-file_name = "RFC.zip"
-with ZipFile(file_name, 'r') as zip:
-    
-    zip.printdir()
-  
-   
-    zip.extractall()
-   
+
 
 # ------------------------------------------------------------------------------------------------------------------------------------------------
 # PREPROCESSING
@@ -87,6 +80,14 @@ def further_processing(processed_docs):
 # ------------------------------------------------------------------------------------------------------------------------------------------------
 # IMPORTING THE MODELS    
 def models(padded_1):
+    
+  file_name = "RFC.zip"
+  with ZipFile(file_name, 'r') as zip:
+    zip.printdir()
+    zip.extractall()
+  with open('RFC', 'rb') as f:
+    RFC = pickle.load(f)  
+    
   with open('GBC', 'rb') as f:
     GBC = pickle.load(f)
 
@@ -95,12 +96,16 @@ def models(padded_1):
 
   with open('AdaB', 'rb') as f:
     AdaB = pickle.load(f) 
+  
+  
+   
 
   def just_for_prediction(model, tweets):
     prediction = model.predict(tweets)
     
     return prediction
-
+  
+  lst1 = just_for_prediction(RFC,padded_1)
   lst2 = just_for_prediction(LGBM, padded_1)
   lst3 = just_for_prediction(AdaB, padded_1)
   lst4 = just_for_prediction(GBC, padded_1)
@@ -110,8 +115,8 @@ def models(padded_1):
   negative = 0
   neutral = 0 
   positive = 0
-  for (b,c,d) in zip(lst2,lst3,lst4):
-      lst6 = list([b,c,d])
+  for (a,b,c,d) in zip(lst1,lst2,lst3,lst4):
+      lst6 = list([a,b,c,d])
       # print(lst6)
       if lst6.count(-1)>lst6.count(1) and lst6.count(-1)>lst6.count(0):
           str1 = 'Negative'
