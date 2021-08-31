@@ -27,6 +27,7 @@ from lightgbm import LGBMClassifier
 from sklearn.ensemble import GradientBoostingClassifier
 
 import datetime 
+from datetime import date
 
 from coinbase.wallet.client import Client
 from requests import Request, Session
