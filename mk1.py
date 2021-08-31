@@ -34,6 +34,7 @@ from requests.exceptions import ConnectionError, Timeout, TooManyRedirects
 import simplejson as json
 
 import itertools
+from zipfile import ZipFile
 
 import pickle
 
