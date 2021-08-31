@@ -41,9 +41,6 @@ import streamlit as st
 st.write("""
 # Malkovich """)
 
-link = '[GitHub](http://github.com)'
-st.markdown(link, unsafe_allow_html=True)
-
 
 # COINBASE API
 # Before we take data from Twitter we need to know the top 10 cryptocurrencies based on market capitalization for which we use the Coinbase API
@@ -165,7 +162,9 @@ if choice == search_words[2]:
                     close=ohlc['Close']))
   st.plotly_chart(fig)   
   for i in range(len(df_n['title'])):
-    st.write(df_n['title'][i], [link](df_n['url'][i]))
+    link = '[link]'(df_n['url'][i])
+    st.markdown(link, unsafe_allow_html=True)
+    st.write(df_n['title'][i])
   st.write(df_n[['title']])
   
   
