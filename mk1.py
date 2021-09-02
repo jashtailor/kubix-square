@@ -312,11 +312,11 @@ def func(name):
 # ------------------------------------------------------------------------------------------------------------------------------------------------
 
 # FRONTEND
-side_bar = ['Nan'] + search_words
+side_bar = ['None'] + search_words
 choice = st.sidebar.selectbox("Menu", side_bar)
 
 # ------------------------------------------------------------------------------------------------------------------------------------------------
-if choice == search_words[0]:
+if choice == side_bar[0]:
     st.write("""
     This website runs entirely on your local machine, we do not have a backend or a database, all we ask from you is your patience as the time it takes to load this website up entirely depends on the speed on your computer and your internet.
              """)
