@@ -219,7 +219,7 @@ for i in technicals:
         if count == 12:
             last_updated.append(k)
 
-df_crypto['Price'] = price
+df_crypto['Price in USD'] = price
 df_crypto['Volume in 24h'] = volume_24h
 df_crypto['% change in 1h'] = percent_change_1h
 df_crypto['% change in 24h'] = percent_change_24h
