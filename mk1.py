@@ -357,7 +357,7 @@ if choice == side_bar[2]:
                     close=ohlc['Close']))
   st.write(choice+' in USD')
   st.plotly_chart(fig)   
-  st.write(pd.DataFrame(technicals[2].values(), index = technicals[1].keys(), columns = ['Values'], dtype=str))
+  st.write(df_crypto[df_crypto['Cryptocurrency']==side_bar[2]])
   st.write('Public Sentiment on '+choice)
   fig_SA = px.bar(df_t, x='Sentiment', y='Count of Sentiment')
   st.plotly_chart(fig_SA)   
