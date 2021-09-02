@@ -190,6 +190,7 @@ last_updated = []
 
 for i in technicals:
     count = 0
+    st.write(type(i), i)
     for j in i:
         k = i.get(j)
         count = count + 1
