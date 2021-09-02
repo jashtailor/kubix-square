@@ -161,7 +161,7 @@ except (ConnectionError, Timeout, TooManyRedirects) as e:
 
 technicals = ['Nan']
 max_supply = ['None']
-circulating_supply = ['None]
+circulating_supply = ['None']
 symbol = ['Nan']
 search_words = ['Nan']
 for i in range(0,10):
