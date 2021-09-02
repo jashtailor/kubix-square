@@ -286,7 +286,7 @@ def news_api(name):
     
   # /v2/everything
   all_articles = newsapi.get_everything(q=name,
-                                      sources='axios, bloomberg, business-insider, crypto-coins-news, engadget, financial-post, google-news, hacker-news, mashable, next-big-futre, recode, reuters, techcrunch-cn, techradar, wired, the-wall-street-journal, bbc-news, fortune',
+                                      sources='axios, bloomberg, business-insider, crypto-coins-news, engadget, financial-post, google-news, hacker-news, mashable, next-big-future, recode, reuters, techcrunch-cn, techradar, wired, the-wall-street-journal, bbc-news, fortune, abc-news, al-jazeera-english,ars-technica, australian-financial-review, breitbart-news, associated-press, buzzfeed, cbs-news, fox-news, independent, medical-news-today, national-review, nbc-news, new-scientist, news24, news-com-au, newsweek, new-york-magazine, politico, polygon, reddit-r-all, techcrunch, the-american-conservative, the-hindu, the-huffington-post, the-lad-bible, the-next-web, the-times-of-india, the-washington-post, the-washington-times, time, vice-news',
                                       domains='bbc.co.uk,techcrunch.com',
                                       from_param=a,
                                       to=today,
