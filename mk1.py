@@ -159,11 +159,11 @@ try:
 except (ConnectionError, Timeout, TooManyRedirects) as e:
   print(e)
 
-technicals = []
-max_supply = []
-circulating_supply = []
-symbol = []
-search_words = []
+technicals = ['Nan']
+max_supply = ['None']
+circulating_supply = ['None]
+symbol = ['Nan']
+search_words = ['Nan']
 for i in range(0,10):
     technicals.append(data['data'][i]['quote']['USD'])
     max_supply.append(data['data'][i]['max_supply'])
