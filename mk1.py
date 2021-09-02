@@ -500,9 +500,9 @@ if choice == side_bar[8]:
 # ------------------------------------------------------------------------------------------------------------------------------------------------
 
 # ------------------------------------------------------------------------------------------------------------------------------------------------
-if choice == search_words[9]:
-  df_t = twitter(search_words[9])
-  df_n = news_api(search_words[9])
+if choice == side_bar[9]:
+  df_t = twitter(side_bar[9])
+  df_n = news_api(side_bar[9])
   ohlc = func(symbol[9])
   fig = go.Figure(data=go.Ohlc(x=ohlc['Date'],
                     open=ohlc['Open'],
