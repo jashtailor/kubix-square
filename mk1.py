@@ -163,7 +163,7 @@ technicals = []
 max_supply = []
 circulating_supply = []
 symbol = []
-search_words = ['Nan']
+search_words = []
 for i in range(0,10):
     technicals.append(data['data'][i]['quote']['USD'])
     max_supply.append(data['data'][i]['max_supply'])
@@ -312,6 +312,7 @@ def func(name):
 # ------------------------------------------------------------------------------------------------------------------------------------------------
 
 # FRONTEND
+side_bar = ['Nan'] + search_words
 choice = st.sidebar.selectbox("Menu", search_words)
 
 # ------------------------------------------------------------------------------------------------------------------------------------------------
@@ -322,9 +323,9 @@ if choice == search_words[0]:
 # ------------------------------------------------------------------------------------------------------------------------------------------------
    
 # ------------------------------------------------------------------------------------------------------------------------------------------------
-if choice == search_words[1]:
-  df_t = twitter(search_words[1])
-  df_n = news_api(search_words[1])
+if choice == side_bar[1]:
+  df_t = twitter(side_bar[1])
+  df_n = news_api(side_bar[1])
   ohlc = func(symbol[1])
   fig = go.Figure(data=go.Ohlc(x=ohlc['Date'],
                     open=ohlc['Open'],
@@ -333,7 +334,7 @@ if choice == search_words[1]:
                     close=ohlc['Close']))
   st.write(choice+' in USD')
   st.plotly_chart(fig) 
-  st.write(df_crypto[df_crypto['Cryptocurrency']==search_words[1]])
+  st.write(df_crypto[df_crypto['Cryptocurrency']==side_bar[1]])
   st.write('Public Sentiment on '+choice)
   fig_SA = px.bar(df_t, x='Sentiment', y='Count of Sentiment')
   st.plotly_chart(fig_SA)
@@ -345,9 +346,9 @@ if choice == search_words[1]:
     
   
 # ------------------------------------------------------------------------------------------------------------------------------------------------  
-if choice == search_words[2]:
-  df_t = twitter(search_words[2])
-  df_n = news_api(search_words[2])
+if choice == side_bar[2]:
+  df_t = twitter(side_bar[2])
+  df_n = news_api(side_bar[2])
   ohlc = func(symbol[2])
   fig = go.Figure(data=go.Ohlc(x=ohlc['Date'],
                     open=ohlc['Open'],
