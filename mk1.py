@@ -159,7 +159,7 @@ try:
 except (ConnectionError, Timeout, TooManyRedirects) as e:
   print(e)
 
-technicals = [0]
+technicals = []
 max_supply = [0]
 circulating_supply = [0]
 symbol = ['Nan']
