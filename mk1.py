@@ -160,9 +160,9 @@ except (ConnectionError, Timeout, TooManyRedirects) as e:
   print(e)
 
 technicals = []
-max_supply = [0]
-circulating_supply = [0]
-symbol = ['Nan']
+max_supply = []
+circulating_supply = []
+symbol = []
 search_words = ['Nan']
 for i in range(0,10):
     technicals.append(data['data'][i]['quote']['USD'])
@@ -170,9 +170,10 @@ for i in range(0,10):
     circulating_supply.append(data['data'][0]['circulating_supply'])
     symbol.append(data['data'][i]['symbol'])
     search_words.append(data['data'][i]['name'])
-    
+
 df_crypto = pd.DataFrame()
 df_crypto['Cryptocurrency'] = search_words
+df_crypto.dropna(inplace=True)
 df_crypto['Symbol'] = symbol
 
 price = [] 
