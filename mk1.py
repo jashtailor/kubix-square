@@ -159,13 +159,78 @@ try:
 except (ConnectionError, Timeout, TooManyRedirects) as e:
   print(e)
 
-technicals = ['None']
-symbol = ['NaN']
-search_words = ['None']
+technicals = []
+max_supply = []
+circulating_supply = []
+symbol = []
+search_words = []
 for i in range(0,10):
     technicals.append(data['data'][i]['quote']['USD'])
+    max_supply.append(data['data'][i]['max_supply'])
+    circulating_supply.append(data['data'][0]['circulating_supply'])
     symbol.append(data['data'][i]['symbol'])
     search_words.append(data['data'][i]['name'])
+    
+df_crypto = pd.DataFrame()
+df_crypto['Cryptocurrency'] = search_words
+df_crypto['Symbol'] = symbol
+
+price = [] 
+volume_24h = []
+percent_change_1h = []
+percent_change_24h = []
+percent_change_7d = []
+percent_change_30d = []
+percent_change_60d = []
+percent_change_90d = []
+market_cap = []
+market_cap_dominance = []
+fully_diluted_market_cap = []
+last_updated = []
+
+for i in technicals:
+    count = 0
+    for j in i:
+        k = i.get(j)
+        count = count + 1
+        if count == 1:
+            price.append(k)
+        if count == 2:
+            volume_24h.append(k)
+        if count == 3:
+            percent_change_1h.append(k)
+        if count == 4:
+            percent_change_24h.append(k)
+        if count == 5:
+            percent_change_7d.append(k)
+        if count == 6:
+            percent_change_30d.append(k)
+        if count == 7:
+            percent_change_60d.append(k)
+        if count == 8:
+            percent_change_90d.append(k)
+        if count == 9:
+            market_cap.append(k)
+        if count == 10:
+            market_cap_dominance.append(k)
+        if count == 11:
+            fully_diluted_market_cap.append(k)
+        if count == 12:
+            last_updated.append(k)
+
+df_crypto['Price'] = price
+df_crypto['Volume in 24h'] = volume_24h
+df_crypto['% change in 1h'] = percent_change_1h
+df_crypto['% change in 24h'] = percent_change_24h
+df_crypto['% change in 7d'] = percent_change_7d
+df_crypto['% change in 30d'] = percent_change_30d
+df_crypto['% change in 60d'] = percent_change_60d
+df_crypto['% change in 90d'] = percent_change_90d
+df_crypto['Market Cap'] = market_cap
+df_crypto['Fully diluted Market Cap'] = fully_diluted_market_cap
+df_crypto['Last updated'] = last_updated
+df_crypto['Circulating Supply'] = circulating_supply
+df_crypto['Max Supply'] = max_supply
 # ------------------------------------------------------------------------------------------------------------------------------------------------
  
 # ------------------------------------------------------------------------------------------------------------------------------------------------   
@@ -267,7 +332,7 @@ if choice == search_words[1]:
                     close=ohlc['Close']))
   st.write(choice+' in USD')
   st.plotly_chart(fig) 
-  st.write(pd.DataFrame(technicals[1].values(), index = technicals[1].keys(), columns = ['Values'], dtype=str))
+  st.write(df_crypto[df_crypto['Cryptocurrency']==search_words[1]])
   st.write('Public Sentiment on '+choice)
   fig_SA = px.bar(df_t, x='Sentiment', y='Count of Sentiment')
   st.plotly_chart(fig_SA)
