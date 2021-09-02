@@ -159,9 +159,9 @@ try:
 except (ConnectionError, Timeout, TooManyRedirects) as e:
   print(e)
 
-technicals = ['Nan']
-max_supply = ['None']
-circulating_supply = ['None']
+technicals = [0]
+max_supply = [0]
+circulating_supply = [0]
 symbol = ['Nan']
 search_words = ['Nan']
 for i in range(0,10):
