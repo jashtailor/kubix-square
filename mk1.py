@@ -313,7 +313,7 @@ def func(name):
 
 # FRONTEND
 side_bar = ['Nan'] + search_words
-choice = st.sidebar.selectbox("Menu", search_words)
+choice = st.sidebar.selectbox("Menu", side_bar)
 
 # ------------------------------------------------------------------------------------------------------------------------------------------------
 if choice == search_words[0]:
@@ -368,9 +368,9 @@ if choice == side_bar[2]:
 # ------------------------------------------------------------------------------------------------------------------------------------------------
 
 # ------------------------------------------------------------------------------------------------------------------------------------------------
-if choice == search_words[3]:
-  df_t = twitter(search_words[3])
-  df_n = news_api(search_words[3])
+if choice == side_bar[3]:
+  df_t = twitter(side_bar[3])
+  df_n = news_api(side_bar[3])
   ohlc = func(symbol[3])
   fig = go.Figure(data=go.Ohlc(x=ohlc['Date'],
                     open=ohlc['Open'],
@@ -379,7 +379,7 @@ if choice == search_words[3]:
                     close=ohlc['Close']))
   st.write(choice+' in USD')
   st.plotly_chart(fig)   
-  st.write(pd.DataFrame(technicals[3].values(), index = technicals[1].keys(), columns = ['Values'], dtype=str))
+  st.write(df_crypto[df_crypto['Cryptocurrency']==side_bar[3]])
   st.write('Public Sentiment on '+choice)
   fig_SA = px.bar(df_t, x='Sentiment', y='Count of Sentiment')
   st.plotly_chart(fig_SA)   
@@ -390,9 +390,9 @@ if choice == search_words[3]:
 # ------------------------------------------------------------------------------------------------------------------------------------------------
 
 # ------------------------------------------------------------------------------------------------------------------------------------------------
-if choice == search_words[4]:
-  df_t = twitter(search_words[4])
-  df_n = news_api(search_words[4])
+if choice == side_bar[4]:
+  df_t = twitter(side_bar[4])
+  df_n = news_api(side_bar[4])
   ohlc = func(symbol[4])
   fig = go.Figure(data=go.Ohlc(x=ohlc['Date'],
                     open=ohlc['Open'],
@@ -401,7 +401,7 @@ if choice == search_words[4]:
                     close=ohlc['Close']))
   st.write(choice+' in USD')
   st.plotly_chart(fig)
-  st.write(pd.DataFrame(technicals[4].values(), index = technicals[1].keys(), columns = ['Values'], dtype=str))
+  st.write(df_crypto[df_crypto['Cryptocurrency']==side_bar[4]])
   st.write('Public Sentiment on '+choice)
   fig_SA = px.bar(df_t, x='Sentiment', y='Count of Sentiment')
   st.plotly_chart(fig_SA)   
@@ -412,9 +412,9 @@ if choice == search_words[4]:
 # ------------------------------------------------------------------------------------------------------------------------------------------------
 
 # ------------------------------------------------------------------------------------------------------------------------------------------------
-if choice == search_words[5]:
-  df_t = twitter(search_words[5])
-  df_n = news_api(search_words[5])
+if choice == side_bar[5]:
+  df_t = twitter(side_bar[5])
+  df_n = news_api(side_bar[5])
   ohlc = func(symbol[5])
   fig = go.Figure(data=go.Ohlc(x=ohlc['Date'],
                     open=ohlc['Open'],
@@ -423,7 +423,7 @@ if choice == search_words[5]:
                     close=ohlc['Close']))
   st.write(choice+' in USD')
   st.plotly_chart(fig) 
-  st.write(pd.DataFrame(technicals[5].values(), index = technicals[1].keys(), columns = ['Values'], dtype=str))
+  st.write(df_crypto[df_crypto['Cryptocurrency']==side_bar[5]])
   st.write('Public Sentiment on '+choice)
   fig_SA = px.bar(df_t, x='Sentiment', y='Count of Sentiment')
   st.plotly_chart(fig_SA) 
@@ -434,9 +434,9 @@ if choice == search_words[5]:
 # ------------------------------------------------------------------------------------------------------------------------------------------------
 
 # ------------------------------------------------------------------------------------------------------------------------------------------------
-if choice == search_words[6]:
-  df_t = twitter(search_words[6])
-  df_n = news_api(search_words[6])
+if choice == side_bar[6]:
+  df_t = twitter(side_bar[6])
+  df_n = news_api(side_bar[6])
   ohlc = func(symbol[6])
   fig = go.Figure(data=go.Ohlc(x=ohlc['Date'],
                     open=ohlc['Open'],
@@ -445,7 +445,7 @@ if choice == search_words[6]:
                     close=ohlc['Close']))
   st.write(choice+' in USD')
   st.plotly_chart(fig) 
-  st.write(pd.DataFrame(technicals[6].values(), index = technicals[1].keys(), columns = ['Values'], dtype=str))
+  st.write(df_crypto[df_crypto['Cryptocurrency']==side_bar[6]])
   st.write('Public Sentiment on '+choice)
   fig_SA = px.bar(df_t, x='Sentiment', y='Count of Sentiment')
   st.plotly_chart(fig_SA)   
@@ -456,9 +456,9 @@ if choice == search_words[6]:
 # ------------------------------------------------------------------------------------------------------------------------------------------------
 
 # ------------------------------------------------------------------------------------------------------------------------------------------------
-if choice == search_words[7]:
-  df_t = twitter(search_words[7])
-  df_n = news_api(search_words[7])
+if choice == side_bar[7]:
+  df_t = twitter(side_bar[7])
+  df_n = news_api(side_bar[7])
   ohlc = func(symbol[7])
   fig = go.Figure(data=go.Ohlc(x=ohlc['Date'],
                     open=ohlc['Open'],
@@ -467,7 +467,7 @@ if choice == search_words[7]:
                     close=ohlc['Close']))
   st.write(choice+' in USD')
   st.plotly_chart(fig)   
-  st.write(pd.DataFrame(technicals[7].values(), index = technicals[1].keys(), columns = ['Values'], dtype=str))
+  st.write(df_crypto[df_crypto['Cryptocurrency']==side_bar[7]])
   st.write('Public Sentiment on '+choice)
   fig_SA = px.bar(df_t, x='Sentiment', y='Count of Sentiment')
   st.plotly_chart(fig_SA)   
@@ -478,9 +478,9 @@ if choice == search_words[7]:
 # ------------------------------------------------------------------------------------------------------------------------------------------------
 
 # ------------------------------------------------------------------------------------------------------------------------------------------------
-if choice == search_words[8]:
-  df_t = twitter(search_words[8])
-  df_n = news_api(search_words[8])
+if choice == side_bar[8]:
+  df_t = twitter(side_bar[8])
+  df_n = news_api(side_bar[8])
   ohlc = func(symbol[8])
   fig = go.Figure(data=go.Ohlc(x=ohlc['Date'],
                     open=ohlc['Open'],
@@ -489,7 +489,7 @@ if choice == search_words[8]:
                     close=ohlc['Close']))
   st.write(choice+' in USD')
   st.plotly_chart(fig)   
-  st.write(pd.DataFrame(technicals[8].values(), index = technicals[1].keys(), columns = ['Values'], dtype=str))
+  st.write(df_crypto[df_crypto['Cryptocurrency']==side_bar[8]])
   st.write('Public Sentiment on '+choice)
   fig_SA = px.bar(df_t, x='Sentiment', y='Count of Sentiment')
   st.plotly_chart(fig_SA)   
@@ -511,7 +511,7 @@ if choice == search_words[9]:
                     close=ohlc['Close']))
   st.write(choice+' in USD')
   st.plotly_chart(fig)   
-  st.write(pd.DataFrame(technicals[9].values(), index = technicals[1].keys(), columns = ['Values'], dtype=str))
+  st.write(df_crypto[df_crypto['Cryptocurrency']==side_bar[9]])
   st.write('Public Sentiment on '+choice)
   fig_SA = px.bar(df_t, x='Sentiment', y='Count of Sentiment')
   st.plotly_chart(fig_SA)   
@@ -522,9 +522,9 @@ if choice == search_words[9]:
 # ------------------------------------------------------------------------------------------------------------------------------------------------
 
 # ------------------------------------------------------------------------------------------------------------------------------------------------
-if choice == search_words[10]:
-  df_t = twitter(search_words[10])
-  df_n = news_api(search_words[10])
+if choice == side_bar[10]:
+  df_t = twitter(side_bar[10])
+  df_n = news_api(side_bar[10])
   ohlc = func(symbol[10])
   fig = go.Figure(data=go.Ohlc(x=ohlc['Date'],
                     open=ohlc['Open'],
@@ -533,7 +533,7 @@ if choice == search_words[10]:
                     close=ohlc['Close']))
   st.write(choice+' in USD')
   st.plotly_chart(fig)   
-  st.write(pd.DataFrame(technicals[10].values(), index = technicals[1].keys(), columns = ['Values'], dtype=str))
+  st.write(df_crypto[df_crypto['Cryptocurrency']==side_bar[10]])
   st.write('Public Sentiment on '+choice)
   fig_SA = px.bar(df_t, x='Sentiment', y='Count of Sentiment')
   st.plotly_chart(fig_SA)   
