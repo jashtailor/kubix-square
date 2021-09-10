@@ -327,7 +327,7 @@ if choice == side_bar[0]:
 if choice == side_bar[1]:
   df_t = twitter(side_bar[1])
   df_n = news_api(side_bar[1])
-  ohlc = func(symbol[1])
+  ohlc = func(symbol[0])
   fig = go.Figure(data=go.Ohlc(x=ohlc['Date'],
                     open=ohlc['Open'],
                     high=ohlc['High'],
@@ -350,7 +350,7 @@ if choice == side_bar[1]:
 if choice == side_bar[2]:
   df_t = twitter(side_bar[2])
   df_n = news_api(side_bar[2])
-  ohlc = func(symbol[2])
+  ohlc = func(symbol[1])
   fig = go.Figure(data=go.Ohlc(x=ohlc['Date'],
                     open=ohlc['Open'],
                     high=ohlc['High'],
@@ -372,7 +372,7 @@ if choice == side_bar[2]:
 if choice == side_bar[3]:
   df_t = twitter(side_bar[3])
   df_n = news_api(side_bar[3])
-  ohlc = func(symbol[3])
+  ohlc = func(symbol[2])
   fig = go.Figure(data=go.Ohlc(x=ohlc['Date'],
                     open=ohlc['Open'],
                     high=ohlc['High'],
@@ -394,7 +394,7 @@ if choice == side_bar[3]:
 if choice == side_bar[4]:
   df_t = twitter(side_bar[4])
   df_n = news_api(side_bar[4])
-  ohlc = func(symbol[4])
+  ohlc = func(symbol[3])
   fig = go.Figure(data=go.Ohlc(x=ohlc['Date'],
                     open=ohlc['Open'],
                     high=ohlc['High'],
@@ -416,7 +416,7 @@ if choice == side_bar[4]:
 if choice == side_bar[5]:
   df_t = twitter(side_bar[5])
   df_n = news_api(side_bar[5])
-  ohlc = func(symbol[5])
+  ohlc = func(symbol[4])
   fig = go.Figure(data=go.Ohlc(x=ohlc['Date'],
                     open=ohlc['Open'],
                     high=ohlc['High'],
@@ -438,7 +438,7 @@ if choice == side_bar[5]:
 if choice == side_bar[6]:
   df_t = twitter(side_bar[6])
   df_n = news_api(side_bar[6])
-  ohlc = func(symbol[6])
+  ohlc = func(symbol[5])
   fig = go.Figure(data=go.Ohlc(x=ohlc['Date'],
                     open=ohlc['Open'],
                     high=ohlc['High'],
@@ -460,7 +460,7 @@ if choice == side_bar[6]:
 if choice == side_bar[7]:
   df_t = twitter(side_bar[7])
   df_n = news_api(side_bar[7])
-  ohlc = func(symbol[7])
+  ohlc = func(symbol[6])
   fig = go.Figure(data=go.Ohlc(x=ohlc['Date'],
                     open=ohlc['Open'],
                     high=ohlc['High'],
@@ -482,7 +482,7 @@ if choice == side_bar[7]:
 if choice == side_bar[8]:
   df_t = twitter(side_bar[8])
   df_n = news_api(side_bar[8])
-  ohlc = func(symbol[8])
+  ohlc = func(symbol[7])
   fig = go.Figure(data=go.Ohlc(x=ohlc['Date'],
                     open=ohlc['Open'],
                     high=ohlc['High'],
@@ -504,7 +504,7 @@ if choice == side_bar[8]:
 if choice == side_bar[9]:
   df_t = twitter(side_bar[9])
   df_n = news_api(side_bar[9])
-  ohlc = func(symbol[9])
+  ohlc = func(symbol[8])
   fig = go.Figure(data=go.Ohlc(x=ohlc['Date'],
                     open=ohlc['Open'],
                     high=ohlc['High'],
@@ -526,7 +526,7 @@ if choice == side_bar[9]:
 if choice == side_bar[10]:
   df_t = twitter(side_bar[10])
   df_n = news_api(side_bar[10])
-  ohlc = func(symbol[10])
+  ohlc = func(symbol[9])
   fig = go.Figure(data=go.Ohlc(x=ohlc['Date'],
                     open=ohlc['Open'],
                     high=ohlc['High'],
