@@ -1,7 +1,7 @@
 # kubix-square
 
-Jash Tailor
-LinkedIn: https://www.linkedin.com/in/jashtailor/ 
+Jash Tailor <br>
+LinkedIn: https://www.linkedin.com/in/jashtailor/ <br>
 Github: https://github.com/jashtailor
 
 
