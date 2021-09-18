@@ -29,4 +29,4 @@ Arnold Veigas <br>
 LinkedIn: https://www.linkedin.com/in/arnold-veigas-390460217 <br>
 Github: https://github.com/Arnold17V
 
-https://share.streamlit.io/jashtailor/kubix-square/main/mk1.py
+Frontend: https://share.streamlit.io/jashtailor/kubix-square/main/mk1.py
