@@ -17,4 +17,16 @@ Beryl Coutinho <br>
 LinkedIn: https://www.linkedin.com/in/beryl-coutinho/ <br>
 Github: https://github.com/BerylCoutinho
 
+Cyrus Ferreira <br>
+LinkedIn: https://www.linkedin.com/in/cyrus-ferreira-209763181/ <br>
+Github: https://github.com/cyrusf17
+
+Shubh Joshi <br>
+LinkedIn: https://www.linkedin.com/in/shubh-joshi-481abb1ba <br>
+Github: https://github.com/ShubhJoshi-557
+
+Arnold Veigas <br>
+LinkedIn: https://www.linkedin.com/in/arnold-veigas-390460217 <br>
+Github: https://github.com/Arnold17V
+
 https://share.streamlit.io/jashtailor/kubix-square/main/mk1.py
