@@ -7,8 +7,9 @@
 - These tweets are preprocessed and fed into the selected 4 Machine Learning models. 
 - Each model outputs a sentiment value (-1, 0, 1) for each tweet and the output from each model is compared and the majority is the final output. e.g if the output from all the 4 models is (0,1,1,1) then the final output is 1 i.e. Positive.
 - The final output is displayed in a bar graph manner which the x-axis being the sentiments and y-axis being the number of tweets of each senitment.
+- internship.ipynb is the Jupyter Notebook which contains the code for cleaning, preprocessing the data, and training and testing of the various Machine Learning models.
+- mk1.py is the backend code for the website, and requirement.txt is a notepad file listing all the Python libraries used along with their version number. 
  
-
 Jash Tailor <br>
 LinkedIn: https://www.linkedin.com/in/jashtailor/ <br>
 Github: https://github.com/jashtailor
